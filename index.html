@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Memory Land - Trạm Sạc Tinh Thần</title>
+    <style>
+        /* --- 1. CÀI ĐẶT CHUNG & MÀU SẮC CHỦ ĐẠO --- */
+        :root {
+            --bg-color: #f0f7fc;       /* Xanh biển cực nhẹ làm nền chìm */
+            --primary-blue: #c6d3da;   /* Xanh biển sáng chủ đạo (Sky blue) */
+            --dark-blue: #2997d3;      /* Xanh biển đậm cho chữ và tiêu đề */
+            --light-blue: #e0f2fe;     /* Màu nền cho các khung nhỏ */
+            --text-color: #334155;     /* Màu chữ xám đậm dễ đọc, không bị mỏi mắt */
+            --card-bg: #ffffff;        /* Màu trắng cho các thẻ kỷ niệm */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- 2. PHẦN MỞ ĐẦU (HERO SECTION) --- */
+        header {
+            background: linear-gradient(135deg, #0ea5e9, var(--primary-blue));
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. ĐIỀU HƯỚNG DANH MỤC (NAV BAR) --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 1.5rem;
+            padding: 0.25rem 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        /* --- 4. BỐ CỤC CHÍNH (MAIN CONTENT) --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-blue);
+            padding-left: 0.75rem;
+        }
+
+        /* --- Bố cục lưới hiển thị các thẻ ảnh kỷ niệm --- */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* --- 5. THIẾT KẾ THẺ KỶ NIỆM (MEMORY CARD) --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hiệu ứng nhấc lên khi di chuột vào */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--light-blue); /* Nền tạm khi chưa có ảnh */
+        }
+
+        .featured-card {
+            overflow: hidden;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+        }
+
+        .featured-banner {
+            height: 260px;
+            background-image: url("cac giai nc.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-card .card-content {
+            padding: 1.5rem;
+        }
+
+        .featured-card .card-title {
+            margin-top: 0.25rem;
+        }
+
+        .open-modal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.2rem;
+            margin-top: 1.25rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .open-modal:hover {
+            transform: translateY(-1px);
+            background: #0087d4;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            z-index: 2000;
+        }
+
+        .modal-overlay.active {
+            display: grid;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 940px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.08);
+            color: #102a43;
+            font-size: 1.35rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(15, 23, 42, 0.16);
+        }
+
+        .modal-header {
+            margin-bottom: 1rem;
+        }
+
+        .modal h3 {
+            margin: 0;
+            color: var(--dark-blue);
+            font-size: 1.45rem;
+        }
+
+        .modal p {
+            margin-top: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .modal-content {
+            margin-top: 1rem;
+        }
+
+        .featured-video {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+            margin-bottom: 1rem;
+        }
+
+        .mini-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .mini-gallery img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+        }
+
+        .mini-gallery img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+        }
+
+        .card-content {
+            padding: 1.25rem;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        /* --- 6. HỘP THƯ ĐỘNG LỰC (QUOTES BOX) --- */
+        .motivation-box {
+            background: linear-gradient(to right, var(--light-blue), #f0fdf4);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border-left: 6px solid var(--primary-blue);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .author {
+            font-size: 0.9rem;
+            text-align: right;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        /* --- 7. CHÂN TRANG (FOOTER) --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TIÊU ĐỀ TRANG WEB -->
+    <header>
+        <h1>My Memory Land</h1>
+        <p>Nơi lưu giữ những nụ cười, những người thương yêu và những lý do để tôi tiếp tục vững bước trên con đường phía trước.</p>
+    </header>
+
+    <!-- 2. THANH MENU CHUYỂN VÙNG NHANH -->
+    <nav>
+        <a href="#myself">Bản Thân</a>
+        <a href="#family">Gia Đình</a>
+        <a href="#friends">Bạn Bè & Đồng Đội</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- 3. GÓC TRUYỀN ĐỘNG LỰC (QUOTES ĐẦU TRANG) -->
+        <div class="motivation-box">
+            <p class="quote">"Đừng lo lắng về việc thất bại. Hãy lo lắng về những cơ hội bạn bỏ lỡ khi bạn thậm chí không thử."</p>
+            <p class="author">— Tự nhắc nhở bản thân</p>
+        </div>
+
+
+        <!-- 4. KHU VỰC 1: BẢN THÂN -->
+        <h2 id="myself" class="section-title">Hành Trình Của Tôi</h2>
+        <div class="memory-grid">
+            
+            <!-- Thẻ kỷ niệm số 1 -->
+            <div class="card featured-card">
+                <div class="featured-banner"></div>
+                <div class="card-content">
+                    <div class="card-date">Tháng 02, 2026</div>
+                    <h3 class="card-title">Cột mốc nghiên cứu dữ liệu</h3>
+                    <p class="card-text">Hoàn thành việc làm quen với mô hình PLS-SEM. Những đêm thức làm task và chạy số liệu mệt nhưng xứng đáng.</p>
+                    <button type="button" class="open-modal" data-target="#research-modal">Xem chi tiết</button>
+                </div>
+            </div>
+            <div class="modal-overlay" id="research-modal" aria-hidden="true">
+                <div class="modal" role="dialog" aria-modal="true">
+                    <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                    <div class="modal-header">
+                        <h3>Chi tiết cột mốc nghiên cứu dữ liệu</h3>
+                        <p>File ảnh và video liên quan chỉ xuất hiện khi bạn mở nội dung này.</p>
+                    </div>
+                    <div class="modal-content">
+                        <video controls class="featured-video" poster="cac giai nc.jpg">
+                            <source src="di len nhan giai.mp4" type="video/mp4">
+                            Trình duyệt của bạn không hỗ trợ video.
+                        </video>
+                        <div class="mini-gallery">
+                            <img src="duoc Thuy tang.jpg" alt="Được Thùy tặng">
+                            <img src="giai A.jpg" alt="Giải A">
+                            <img src="giai A 2.jpg" alt="Giải A 2">
+                            <img src="giai A 3.jpg" alt="Giải A 3">
+                            <img src="giai A 4.jpg" alt="Giải A 4">
+                            <img src="giai A 5.jpg" alt="Giải A 5">
+                            <img src="giai A ho con rua.jpg" alt="Giải A hờ con rùa">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ kỷ niệm số 2 (Bạn có thể copy ra nhiều thẻ tùy thích) -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500" alt="Kỷ niệm" class="card-img">
+                <div class="card-content">
+                    <div class="card-date">Mục tiêu sắp tới</div>
+                    <h3 class="card-title">Hành trình tìm kiếm Internship</h3>
+                    <p class="card-text">Dù có chút khó khăn thử thách lúc đầu, nhưng mình tin mọi nỗ lực chuẩn bị kiến thức xuất nhập khẩu và logistics sẽ được đền đáp!</p>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('mentoring anh chien.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Học hỏi từ kinh nghiệm</div>
+                    <h3 class="card-title">Mentoring</h3>
+                    <p class="card-text">Những buổi mentoring cùng anh Chiến, nơi tôi học được những bài học quý giá về cuộc sống và sự nghiệp.</p>
+                    <button type="button" class="open-modal" data-target="#mentoring-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="modal-overlay" id="mentoring-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Mentoring</h3>
+                    <p>Những buổi mentoring quý giá cùng anh Chiến.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 5. KHU VỰC 2: GIA ĐÌNH -->
+        <h2 id="family" class="section-title">Gia Đình Là Điểm Tựa</h2>
+        <div class="memory-grid">
+            
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('me va ngoai 4.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Tết 2026</div>
+                    <h3 class="card-title">Những lúc bên ngoại</h3>
+                    <p class="card-text">Những khoảnh khắc ấm áp bên ngoại, nơi lưu giữ tình yêu thương và những kỷ niệm quý giá của gia đình.</p>
+                    <button type="button" class="open-modal" data-target="#ngoai-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('me 9.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Đám cưới anh Trường</div>
+                    <h3 class="card-title">Sự kiện gia đình</h3>
+                    <p class="card-text">Những khoảnh khắc ấm áp trong đám cưới anh Trường, lưu giữ tình thân và kỷ niệm gia đình.</p>
+                    <button type="button" class="open-modal" data-target="#family-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('di nha trang 4.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Du lịch gia đình</div>
+                    <h3 class="card-title">Đi chơi Nha Trang</h3>
+                    <p class="card-text">Chuyến du lịch đầy vui vẻ cùng gia đình tại Nha Trang, những khoảnh khắc đáng nhớ trên bãi biển.</p>
+                    <button type="button" class="open-modal" data-target="#nha-trang-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('di an voi hai.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Thời gian gia đình</div>
+                    <h3 class="card-title">Đi ăn với chị Hai</h3>
+                    <p class="card-text">Những bữa ăn vui vẻ cùng chị Hai, nơi tôi tạo thêm những ký ức đẹp với gia đình.</p>
+                    <button type="button" class="open-modal" data-target="#di-an-hai-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Hai tốt nghiệp.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Thành tích gia đình</div>
+                    <h3 class="card-title">Lễ tốt nghiệp của chị Hai</h3>
+                    <p class="card-text">Những khoảnh khắc vinh dự khi chứng kiến chị Hai hoàn thành chương trình học và bước vào một chương mới của cuộc đời.</p>
+                    <button type="button" class="open-modal" data-target="#hai-tot-nghiep-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="di-an-hai-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi ăn với chị Hai</h3>
+                    <p>Những khoảnh khắc vui vẻ của các bữa ăn cùng chị Hai.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="di an voi hai 2.jpg" alt="Đi ăn với chị Hai 2">
+                        <img src="di an voi hai 3.jpg" alt="Đi ăn với chị Hai 3">
+                        <img src="di an voi hai 4.jpg" alt="Đi ăn với chị Hai 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="hai-tot-nghiep-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Lễ tốt nghiệp của chị Hai</h3>
+                    <p>Những khoảnh khắc vinh dự và đáng nhớ của lễ tốt nghiệp.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="ngoai-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Những lúc bên ngoại</h3>
+                    <p>Những khoảnh khắc ấm áp và đáng nhớ bên người ngoại.</p>
+                </div>
+                <div class="modal-content">
+                    <video controls class="featured-video" poster="me va ngoai 4.jpg">
+                        <source src="me ben ngoai 4.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ video.
+                    </video>
+                    <div class="mini-gallery">
+                        <img src="ngoai.jpg" alt="Ngoại">
+                        <img src="me va ngoai.jpg" alt="Mẹ và ngoại">
+                        <img src="me va ngoai 2.jpg" alt="Mẹ và ngoại 2">
+                        <img src="me va ngoai 3.jpg" alt="Mẹ và ngoại 3">
+                        <img src="me va ngoai 5.jpg" alt="Mẹ và ngoại 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="family-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đám cưới anh Trường</h3>
+                    <p>Một bộ sưu tập gia đình được lưu giữ dưới đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="me.jpg" alt="Mẹ">
+                        <img src="me 2.jpg" alt="Mẹ 2">
+                        <img src="me 3.jpg" alt="Mẹ 3">
+                        <img src="me 4.jpg" alt="Mẹ 4">
+                        <img src="me 5.jpg" alt="Mẹ 5">
+                        <img src="me 6.jpg" alt="Mẹ 6">
+                        <img src="me 7.jpg" alt="Mẹ 7">
+                        <img src="me 8.jpg" alt="Mẹ 8">
+                        <img src="huynh anh.jpg" alt="Huynh Anh">
+                        <img src="huynh anh 2.jpg" alt="Huynh Anh 2">
+                        <img src="dam cuoi anh truong.jpg" alt="Đám cưới anh Trường">
+                        <img src="dam cuoi anh truong 2.jpg" alt="Đám cưới anh Trường 2">
+                        <img src="dam cuoi anh truong 3.jpg" alt="Đám cưới anh Trường 3">
+                        <img src="dam cuoi anh truong 4.jpg" alt="Đám cưới anh Trường 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal-overlay" id="nha-trang-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi chơi Nha Trang</h3>
+                    <p>Những khoảnh khắc vui vẻ của chuyến du lịch gia đình tại Nha Trang.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="di nha trang.jpg" alt="Đi Nha Trang">
+                        <img src="di nha trang 2.jpg" alt="Đi Nha Trang 2">
+                        <img src="di nha trang 3.jpg" alt="Đi Nha Trang 3">
+                        <img src="di nha trang 5.jpg" alt="Đi Nha Trang 5">
+                        <img src="di nha trang 6.jpg" alt="Đi Nha Trang 6">
+                        <img src="di nha trang 7.jpg" alt="Đi Nha Trang 7">
+                        <img src="di nha trang 8.jpg" alt="Đi Nha Trang 8">
+                        <img src="di nha trang 9.jpg" alt="Đi Nha Trang 9">
+                        <img src="di nha trang 10.jpg" alt="Đi Nha Trang 10">
+                        <img src="di nha trang 11.jpg" alt="Đi Nha Trang 11">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 6. KHU VỰC 3: BẠN BÈ & ĐỒNG ĐỘI -->
+        <h2 id="friends" class="section-title">Bạn Bè & Đồng Đội</h2>
+        <div class="memory-grid">
+            
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('4 dua su kien.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Những khoảnh khắc đại học</div>
+                    <h3 class="card-title">Hồi ức sinh viên</h3>
+                    <p class="card-text">Tập hợp những khoảnh khắc đáng nhớ của đời sinh viên: lễ hội, bạn bè và những ngày cuối kì nhiều cảm xúc.</p>
+                    <button type="button" class="open-modal" data-target="#university-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('di toa 3.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Đi trải nghiệm tòa án</div>
+                    <h3 class="card-title">Hành trình thực tế</h3>
+                    <p class="card-text">Một ngày khám phá tòa án, học hỏi quy trình và cảm nhận không khí tại nơi công lý được thực thi.</p>
+                    <button type="button" class="open-modal" data-target="#court-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('qs 3.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Học quân sự</div>
+                    <h3 class="card-title">Kỷ niệm quân sự</h3>
+                    <p class="card-text">Những ngày tập luyện cùng đồng đội, tinh thần kỷ luật và kết nối đồng đội đã trở thành một phần đáng nhớ.</p>
+                    <button type="button" class="open-modal" data-target="#military-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('usvc chup chung.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Chương trình Mùa hè xanh</div>
+                    <h3 class="card-title">Mùa hè xanh</h3>
+                    <p class="card-text">Hành trình tình nguyện và phục vụ cộng đồng, nơi tôi học được giá trị của việc chia sẻ và đóng góp cho xã hội.</p>
+                    <button type="button" class="open-modal" data-target="#usvc-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('vinamilk.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Dự án học tập</div>
+                    <h3 class="card-title">Đi quay clip làm dự án</h3>
+                    <p class="card-text">Một trải nghiệm sáng tạo cùng đồng đội, từ ý tưởng đến thực hiện, tạo ra những sản phẩm có ý nghĩa.</p>
+                    <button type="button" class="open-modal" data-target="#vinamilk-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('di da lat 3.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Hoạt động CLB</div>
+                    <h3 class="card-title">Đi Đà Lạt với CLB</h3>
+                    <p class="card-text">Chuyến du lịch kỷ niệm cùng câu lạc bộ, nơi tôi tạo thêm những ký ức đẹp với bạn bè đồng hành.</p>
+                    <button type="button" class="open-modal" data-target="#dalat-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('gap ban nuoc ngoai 2.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Gặp gỡ quốc tế</div>
+                    <h3 class="card-title">Gặp bạn nước ngoài</h3>
+                    <p class="card-text">Những khoảnh khắc quý giá khi gặp gỡ và giao lưu với bạn bè từ các quốc gia khác, mở rộng tầm nhìn và kết nối toàn cầu.</p>
+                    <button type="button" class="open-modal" data-target="#gap-ban-nuoc-ngoai-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="university-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Những khoảnh khắc đại học</h3>
+                    <p>Gợi lại cảm xúc cuối kì, bạn bè và kỷ niệm đẹp trong thời sinh viên.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="recap cuoi ki.jpg" alt="Recap cuối kì">
+                        <img src="thach, loc.jpg" alt="Thạch và Lộc">
+                        <img src="toc bui.jpg" alt="Tóc bùi">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="military-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Học quân sự</h3>
+                    <p>Những khoảnh khắc kỷ luật và đồng đội trong khoảng thời gian huấn luyện quân sự.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="qs 1.jpg" alt="Quân sự 1">
+                        <img src="qs 2.jpg" alt="Quân sự 2">
+                        <img src="qs 4.jpg" alt="Quân sự 4">
+                        <img src="qs 5.jpg" alt="Quân sự 5">
+                        <img src="qs 6.jpg" alt="Quân sự 6">
+                        <img src="qs 7.jpg" alt="Quân sự 7">
+                        <img src="qs 8.jpg" alt="Quân sự 8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="gap-ban-nuoc-ngoai-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Gặp bạn nước ngoài</h3>
+                    <p>Những khoảnh khắc gặp gỡ và giao lưu quốc tế.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="gap ban nuoc ngoai.jpg" alt="Gặp bạn nước ngoài">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="usvc-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Mùa hè xanh</h3>
+                    <p>Những khoảnh khắc tình nguyện và phục vụ cộng đồng trong chương trình Mùa hè xanh.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="usvc 2.jpg" alt="Mùa hè xanh 2">
+                        <img src="usvc 3.jpg" alt="Mùa hè xanh 3">
+                        <img src="usvc 4.jpg" alt="Mùa hè xanh 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="vinamilk-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi quay clip làm dự án</h3>
+                    <p>Những khoảnh khắc sáng tạo và hợp tác trong quá trình làm dự án.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="dalat-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi Đà Lạt với CLB</h3>
+                    <p>Những khoảnh khắc đáng nhớ của chuyến du lịch cùng câu lạc bộ.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="di da lat.jpg" alt="Đi Đà Lạt">
+                        <img src="di da lat 2.jpg" alt="Đi Đà Lạt 2">
+                        <img src="di da lat 4.jpg" alt="Đi Đà Lạt 4">
+                        <img src="di da lat 5.jpg" alt="Đi Đà Lạt 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="court-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi trải nghiệm tòa án</h3>
+                    <p>Những hình ảnh và kỷ niệm trong chuyến đi thực tế đến tòa án.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="di toa.jpg" alt="Đã đến tòa án">
+                        <img src="di toa 2.jpg" alt="Hình ảnh trải nghiệm tòa án">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 7. CHÂN TRANG -->
+    <footer>
+        <p>© 2026 Created with ❤️ by Tuấn. Keep moving forward!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openButtons = document.querySelectorAll('.open-modal');
+            const modals = document.querySelectorAll('.modal-overlay');
+            const closeButtons = document.querySelectorAll('.modal-close');
+
+            const toggleModal = function(modal, show) {
+                modal.classList.toggle('active', show);
+                modal.setAttribute('aria-hidden', show ? 'false' : 'true');
+            };
+
+            openButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const target = document.querySelector(button.dataset.target);
+                    if (target) {
+                        toggleModal(target, true);
+                    }
+                });
+            });
+
+            closeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const modal = button.closest('.modal-overlay');
+                    if (modal) {
+                        toggleModal(modal, false);
+                    }
+                });
+            });
+
+            modals.forEach(function(modal) {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        toggleModal(modal, false);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    modals.forEach(function(modal) {
+                        if (modal.classList.contains('active')) {
+                            toggleModal(modal, false);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
