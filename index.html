@@ -8,8 +8,8 @@
         /* --- 1. CÀI ĐẶT CHUNG & MÀU SẮC CHỦ ĐẠO --- */
         :root {
             --bg-color: #f0f7fc;       /* Xanh biển cực nhẹ làm nền chìm */
-            --primary-blue: #c6d3da;   /* Xanh biển sáng chủ đạo (Sky blue) */
-            --dark-blue: #2997d3;      /* Xanh biển đậm cho chữ và tiêu đề */
+            --primary-blue: #c5d1d7;   /* Xanh biển sáng chủ đạo (Sky blue) */
+            --dark-blue: #008dd9;      /* Xanh biển đậm cho chữ và tiêu đề */
             --light-blue: #e0f2fe;     /* Màu nền cho các khung nhỏ */
             --text-color: #334155;     /* Màu chữ xám đậm dễ đọc, không bị mỏi mắt */
             --card-bg: #ffffff;        /* Màu trắng cho các thẻ kỷ niệm */
@@ -131,7 +131,7 @@
 
         .featured-banner {
             height: 260px;
-            background-image: url("cac giai nc.jpg");
+            background-image: url("Ban%20Than/Nghien%20cuu/cac%20giai%20nc.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -247,7 +247,8 @@
             margin-top: 1rem;
         }
 
-        .mini-gallery img {
+        .mini-gallery img,
+        .mini-gallery video {
             width: 100%;
             height: 100px;
             object-fit: cover;
@@ -255,12 +256,33 @@
             box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
         }
 
-        .mini-gallery img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+        .file-details {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8fbff;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 170, 255, 0.15);
+        }
+
+        .file-details h4 {
+            margin: 0 0 0.75rem;
+            color: var(--dark-blue);
+            font-size: 1rem;
+        }
+
+        .file-details ul {
+            list-style: disc inside;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .file-details a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .file-details a:hover {
+            text-decoration: underline;
         }
 
         .card-content {
@@ -330,7 +352,7 @@
     <nav>
         <a href="#myself">Bản Thân</a>
         <a href="#family">Gia Đình</a>
-        <a href="#friends">Bạn Bè & Đồng Đội</a>
+        <a href="#friends">Bạn Bè</a>
     </nav>
 
     <div class="container">
@@ -341,7 +363,6 @@
             <p class="author">— Tự nhắc nhở bản thân</p>
         </div>
 
-
         <!-- 4. KHU VỰC 1: BẢN THÂN -->
         <h2 id="myself" class="section-title">Hành Trình Của Tôi</h2>
         <div class="memory-grid">
@@ -351,7 +372,7 @@
                 <div class="featured-banner"></div>
                 <div class="card-content">
                     <div class="card-date">Tháng 02, 2026</div>
-                    <h3 class="card-title">Cột mốc nghiên cứu dữ liệu</h3>
+                    <h3 class="card-title">Nghiên cứu khoa học</h3>
                     <p class="card-text">Hoàn thành việc làm quen với mô hình PLS-SEM. Những đêm thức làm task và chạy số liệu mệt nhưng xứng đáng.</p>
                     <button type="button" class="open-modal" data-target="#research-modal">Xem chi tiết</button>
                 </div>
@@ -364,55 +385,109 @@
                         <p>File ảnh và video liên quan chỉ xuất hiện khi bạn mở nội dung này.</p>
                     </div>
                     <div class="modal-content">
-                        <video controls class="featured-video" poster="cac giai nc.jpg">
-                            <source src="di len nhan giai.mp4" type="video/mp4">
-                            Trình duyệt của bạn không hỗ trợ video.
-                        </video>
+                        <img src="Ban%20Than/Nghien%20cuu/cac%20giai%20nc.jpg" alt="Cac giai nc" class="featured-video">
                         <div class="mini-gallery">
-                            <img src="duoc Thuy tang.jpg" alt="Được Thùy tặng">
-                            <img src="giai A.jpg" alt="Giải A">
-                            <img src="giai A 2.jpg" alt="Giải A 2">
-                            <img src="giai A 3.jpg" alt="Giải A 3">
-                            <img src="giai A 4.jpg" alt="Giải A 4">
-                            <img src="giai A 5.jpg" alt="Giải A 5">
-                            <img src="giai A ho con rua.jpg" alt="Giải A hờ con rùa">
+                            <img src="Ban%20Than/Nghien%20cuu/duoc%20Thuy%20tang.jpg" alt="Được Thùy tặng">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A.jpg" alt="Giải A">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%202.jpg" alt="Giải A 2">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%203.jpg" alt="Giải A 3">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%204.jpg" alt="Giải A 4">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%205.jpg" alt="Giải A 5">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%206.jpg" alt="Giải A 6">
+                            <video controls>
+                                <source src="Ban%20Than/Nghien%20cuu/giai%20A%207.mp4" type="video/mp4">
+                                Trình duyệt của bạn không hỗ trợ video.
+                            </video>
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%208.jpg" alt="Giải A 8">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%209.jpg" alt="Giải A 9">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2010.jpg" alt="Giải A 10">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2011.jpg" alt="Giải A 11">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2012.jpg" alt="Giải A 12">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2013.jpg" alt="Giải A 13">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2014.jpg" alt="Giải A 14">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2015.jpg" alt="Giải A 15">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2016.jpg" alt="Giải A 16">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2017.jpg" alt="Giải A 17">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2018.jpg" alt="Giải A 18">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2019.jpg" alt="Giải A 19">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2020.jpg" alt="Giải A 20">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2021.jpg" alt="Giải A 21">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2022.jpg" alt="Giải A 22">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2023.jpg" alt="Giải A 23">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2024.jpg" alt="Giải A 24">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2025.jpg" alt="Giải A 25">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2026.jpg" alt="Giải A 26">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2026.png" alt="Giải A 26">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2027.png" alt="Giải A 27">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2028.png" alt="Giải A 28">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2029.png" alt="Giải A 29">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2030.png" alt="Giải A 30">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%2031.png" alt="Giải A 31">
+                            <img src="Ban%20Than/Nghien%20cuu/giai%20A%20ho%20con%20rua.jpg" alt="Giải A hờ con rùa">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Thẻ kỷ niệm số 2 (Bạn có thể copy ra nhiều thẻ tùy thích) -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500" alt="Kỷ niệm" class="card-img">
-                <div class="card-content">
-                    <div class="card-date">Mục tiêu sắp tới</div>
-                    <h3 class="card-title">Hành trình tìm kiếm Internship</h3>
-                    <p class="card-text">Dù có chút khó khăn thử thách lúc đầu, nhưng mình tin mọi nỗ lực chuẩn bị kiến thức xuất nhập khẩu và logistics sẽ được đền đáp!</p>
-                </div>
-            </div>
-
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('mentoring anh chien.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Than/Mentoring/mentoring%20anh%20chien%203.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Học hỏi từ kinh nghiệm</div>
+                    <div class="card-date">Tháng 04, 2026</div>
                     <h3 class="card-title">Mentoring</h3>
-                    <p class="card-text">Những buổi mentoring cùng anh Chiến, nơi tôi học được những bài học quý giá về cuộc sống và sự nghiệp.</p>
+                    <p class="card-text">Hành trình mentoring với những bài học, gợi ý và hình ảnh quan trọng từ Mentoring.</p>
                     <button type="button" class="open-modal" data-target="#mentoring-modal">Xem chi tiết</button>
                 </div>
             </div>
 
-        </div>
-
-
-        <div class="modal-overlay" id="mentoring-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Mentoring</h3>
-                    <p>Những buổi mentoring quý giá cùng anh Chiến.</p>
+            <div class="modal-overlay" id="mentoring-modal" aria-hidden="true">
+                <div class="modal" role="dialog" aria-modal="true">
+                    <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                    <div class="modal-header">
+                        <h3>Mentoring</h3>
+                        <p>Những tệp còn lại từ thư mục Mentoring được hiển thị trực tiếp ở đây.</p>
+                    </div>
+                    <div class="modal-content">
+                        <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%203.jpg" alt="Mentoring" class="featured-video">
+                        <div class="mini-gallery">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%202.jpg" alt="Mentoring 2">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%204.jpg" alt="Mentoring 4">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%205.jpg" alt="Mentoring 5">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%206.jpg" alt="Mentoring 6">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%207.jpg" alt="Mentoring 7">
+                            <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien.jpg" alt="Mentoring tổng quan">
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Than/So%20thich/vuon%20cay%20cua%20toi.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Sở thích</div>
+                    <h3 class="card-title">Vườn cây của tôi</h3>
+                    <p class="card-text">Một góc bình yên cho sở thích chăm sóc cây và thư giãn.</p>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Than/Bao%20tang%20HCM/bao%20tang%20hcm.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Bảo tàng HCM</div>
+                    <h3 class="card-title">Bảo tàng HCM</h3>
+                    <p class="card-text">Khoảnh khắc lưu giữ trong bảo tàng, mở ra hình ảnh sâu sắc hơn về chuyến tham quan.</p>
+                    <button type="button" class="open-modal" data-target="#museum-modal">Xem bên trong</button>
+                </div>
+            </div>
+
+            <div class="modal-overlay" id="museum-modal" aria-hidden="true">
+                <div class="modal" role="dialog" aria-modal="true">
+                    <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                    <div class="modal-header">
+                        <h3>Bảo tàng HCM</h3>
+                        <p>Hình ảnh bên trong bảo tàng được hiển thị trực tiếp ở đây.</p>
+                    </div>
+                    <div class="modal-content">
+                        <img src="Ban%20Than/Bao%20tang%20HCM/bao%20tang%20hcm%202.jpg" alt="Bảo tàng HCM 2" class="featured-video">
                     </div>
                 </div>
             </div>
@@ -423,110 +498,86 @@
         <h2 id="family" class="section-title">Gia Đình Là Điểm Tựa</h2>
         <div class="memory-grid">
             
-            <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('me va ngoai 4.jpg');"></div>
-                <div class="card-content">
-                    <div class="card-date">Tết 2026</div>
-                    <h3 class="card-title">Những lúc bên ngoại</h3>
-                    <p class="card-text">Những khoảnh khắc ấm áp bên ngoại, nơi lưu giữ tình yêu thương và những kỷ niệm quý giá của gia đình.</p>
-                    <button type="button" class="open-modal" data-target="#ngoai-modal">Xem chi tiết</button>
-                </div>
-            </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('me 9.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 9.jpg');"></div>
                 <div class="card-content">
                     <div class="card-date">Đám cưới anh Trường</div>
-                    <h3 class="card-title">Sự kiện gia đình</h3>
+                    <h3 class="card-title">Đám cưới anh Trường</h3>
                     <p class="card-text">Những khoảnh khắc ấm áp trong đám cưới anh Trường, lưu giữ tình thân và kỷ niệm gia đình.</p>
                     <button type="button" class="open-modal" data-target="#family-modal">Xem chi tiết</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('di nha trang 4.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Chi%20Hai/chi%20Hai.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Du lịch gia đình</div>
+                    <div class="card-date">Chị Hai</div>
+                    <h3 class="card-title">Chị Hai</h3>
+                    <p class="card-text">Những kỷ niệm với chị Hai và món quà đặc biệt được giữ lại ở đây.</p>
+                    <button type="button" class="open-modal" data-target="#sister-modal">Xem bên trong</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Chu%20Linh/O%20nha%20chu%20Linh.png');"></div>
+                <div class="card-content">
+                    <div class="card-date">Chú Linh</div>
+                    <h3 class="card-title">Chú Linh</h3>
+                    <p class="card-text">Góc gia đình với Chú Linh và những kỷ niệm yêu thương.</p>
+                    <button type="button" class="open-modal" data-target="#uncle-modal">Xem bên trong</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Me/toi%20va%20me.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Mẹ</div>
+                    <h3 class="card-title">Mẹ</h3>
+                    <p class="card-text">Những khoảnh khắc bên mẹ được lưu giữ trong bộ sưu tập này.</p>
+                    <button type="button" class="open-modal" data-target="#mom-modal">Xem bên trong</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Nha%20Trang/di%20nha%20trang%204.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Đi chơi Nha Trang</div>
                     <h3 class="card-title">Đi chơi Nha Trang</h3>
-                    <p class="card-text">Chuyến du lịch đầy vui vẻ cùng gia đình tại Nha Trang, những khoảnh khắc đáng nhớ trên bãi biển.</p>
-                    <button type="button" class="open-modal" data-target="#nha-trang-modal">Xem chi tiết</button>
+                    <p class="card-text">Những kỷ niệm Nha Trang được lưu giữ và mở ra trong một modal riêng.</p>
+                    <button type="button" class="open-modal" data-target="#nhatrang-modal">Xem bên trong</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('di an voi hai.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Vung%20Tau/di%20vung%20tau%202.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Thời gian gia đình</div>
-                    <h3 class="card-title">Đi ăn với chị Hai</h3>
-                    <p class="card-text">Những bữa ăn vui vẻ cùng chị Hai, nơi tôi tạo thêm những ký ức đẹp với gia đình.</p>
-                    <button type="button" class="open-modal" data-target="#di-an-hai-modal">Xem chi tiết</button>
+                    <div class="card-date">Đi chơi Vũng Tàu</div>
+                    <h3 class="card-title">Đi chơi Vũng Tàu</h3>
+                    <p class="card-text">Tập hợp toàn bộ ảnh và video của chuyến Vũng Tàu trong một modal.</p>
+                    <button type="button" class="open-modal" data-target="#vungtau-modal">Xem bên trong</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('Hai tốt nghiệp.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Ngoai/me%20va%20ngoai%204.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Thành tích gia đình</div>
-                    <h3 class="card-title">Lễ tốt nghiệp của chị Hai</h3>
-                    <p class="card-text">Những khoảnh khắc vinh dự khi chứng kiến chị Hai hoàn thành chương trình học và bước vào một chương mới của cuộc đời.</p>
-                    <button type="button" class="open-modal" data-target="#hai-tot-nghiep-modal">Xem chi tiết</button>
+                    <div class="card-date">Những khoảnh khắc bên ngoại</div>
+                    <h3 class="card-title">Những khoảnh khắc bên ngoại</h3>
+                    <p class="card-text">Những khoảnh khắc ấm áp cùng ngoại được lưu giữ riêng trong một modal.</p>
+                    <button type="button" class="open-modal" data-target="#outside-modal">Xem bên trong</button>
                 </div>
             </div>
 
-        </div>
-
-        <div class="modal-overlay" id="di-an-hai-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Đi ăn với chị Hai</h3>
-                    <p>Những khoảnh khắc vui vẻ của các bữa ăn cùng chị Hai.</p>
-                </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
-                        <img src="di an voi hai 2.jpg" alt="Đi ăn với chị Hai 2">
-                        <img src="di an voi hai 3.jpg" alt="Đi ăn với chị Hai 3">
-                        <img src="di an voi hai 4.jpg" alt="Đi ăn với chị Hai 4">
-                    </div>
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Gia%20Dinh/Dam%20cuoi%20cua%20Bi/Dam%20cuoi%20cua%20Bi.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Đám cưới của Bi</div>
+                    <h3 class="card-title">Đám cưới của Bi</h3>
+                    <p class="card-text">Khoảnh khắc ngập tràn yêu thương của đám cưới Bi.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="modal-overlay" id="hai-tot-nghiep-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Lễ tốt nghiệp của chị Hai</h3>
-                    <p>Những khoảnh khắc vinh dự và đáng nhớ của lễ tốt nghiệp.</p>
-                </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-overlay" id="ngoai-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Những lúc bên ngoại</h3>
-                    <p>Những khoảnh khắc ấm áp và đáng nhớ bên người ngoại.</p>
-                </div>
-                <div class="modal-content">
-                    <video controls class="featured-video" poster="me va ngoai 4.jpg">
-                        <source src="me ben ngoai 4.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ video.
-                    </video>
-                    <div class="mini-gallery">
-                        <img src="ngoai.jpg" alt="Ngoại">
-                        <img src="me va ngoai.jpg" alt="Mẹ và ngoại">
-                        <img src="me va ngoai 2.jpg" alt="Mẹ và ngoại 2">
-                        <img src="me va ngoai 3.jpg" alt="Mẹ và ngoại 3">
-                        <img src="me va ngoai 5.jpg" alt="Mẹ và ngoại 5">
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="modal-overlay" id="family-modal" aria-hidden="true">
@@ -538,57 +589,227 @@
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="me.jpg" alt="Mẹ">
-                        <img src="me 2.jpg" alt="Mẹ 2">
-                        <img src="me 3.jpg" alt="Mẹ 3">
-                        <img src="me 4.jpg" alt="Mẹ 4">
-                        <img src="me 5.jpg" alt="Mẹ 5">
-                        <img src="me 6.jpg" alt="Mẹ 6">
-                        <img src="me 7.jpg" alt="Mẹ 7">
-                        <img src="me 8.jpg" alt="Mẹ 8">
-                        <img src="huynh anh.jpg" alt="Huynh Anh">
-                        <img src="huynh anh 2.jpg" alt="Huynh Anh 2">
-                        <img src="dam cuoi anh truong.jpg" alt="Đám cưới anh Trường">
-                        <img src="dam cuoi anh truong 2.jpg" alt="Đám cưới anh Trường 2">
-                        <img src="dam cuoi anh truong 3.jpg" alt="Đám cưới anh Trường 3">
-                        <img src="dam cuoi anh truong 4.jpg" alt="Đám cưới anh Trường 4">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me.jpg" alt="Mẹ">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 2.jpg" alt="Mẹ 2">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 3.jpg" alt="Mẹ 3">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 4.jpg" alt="Mẹ 4">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 5.jpg" alt="Mẹ 5">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 6.jpg" alt="Mẹ 6">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 7.jpg" alt="Mẹ 7">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/me 8.jpg" alt="Mẹ 8">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/huynh anh.jpg" alt="Huynh Anh">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/huynh anh 2.jpg" alt="Huynh Anh 2">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/dam cuoi anh truong.jpg" alt="Đám cưới anh Trường">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/dam cuoi anh truong 2.jpg" alt="Đám cưới anh Trường 2">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/dam cuoi anh truong 3.jpg" alt="Đám cưới anh Trường 3">
+                        <img src="Gia%20Dinh/Dam%20Cuoi%20Anh%20Truong/dam cuoi anh truong 4.jpg" alt="Đám cưới anh Trường 4">
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="modal-overlay" id="sister-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Chị Hai</h3>
+                    <p>Khoảnh khắc tặng quà từ Chị Hai được hiển thị ngay bên dưới.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Chi%20Hai/qua%20cua%20Hai.jpg" alt="Quà của Hai" class="featured-video">
+                        <img src="Gia%20Dinh/Chi%20Hai/qua%20cua%20Hai%202.jpg" alt="Quà của Hai 2">
+                        <img src="Gia%20Dinh/Chi%20Hai/Hai%20tot%20nghiep.jpg" alt="Hai tot nghiep">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="modal-overlay" id="nha-trang-modal" aria-hidden="true">
+        <div class="modal-overlay" id="uncle-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Chú Linh</h3>
+                    <p>Tất cả những tệp còn lại về Chú Linh được hiển thị ngay tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Chu%20Linh/O%20nha%20chu%20Linh.png" alt="Ở nhà chú Linh" class="featured-video">
+                        <video controls>
+                            <source src="Gia%20Dinh/Chu%20Linh/O%20nha%20chu%20Linh.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Chu%20Linh/O%20nha%20chu%20Linh%202.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="mom-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Mẹ</h3>
+                    <p>Những tấm ảnh còn lại cùng mẹ được hiển thị ở đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Me/toi%20va%20me.jpg" alt="Tôi và mẹ" class="featured-video">
+                        <img src="Gia%20Dinh/Me/toi%20va%20me%202.jpg" alt="Tôi và mẹ 2">
+                        <img src="Gia%20Dinh/Me/me%2010.jpg" alt="Mẹ 10">
+                        <img src="Gia%20Dinh/Me/me%2011.jpg" alt="Mẹ 11">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="nhatrang-modal" aria-hidden="true">
             <div class="modal" role="dialog" aria-modal="true">
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đi chơi Nha Trang</h3>
-                    <p>Những khoảnh khắc vui vẻ của chuyến du lịch gia đình tại Nha Trang.</p>
+                    <p>Toàn bộ ảnh và video của chuyến đi Nha Trang được hiển thị trong đây.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="di nha trang.jpg" alt="Đi Nha Trang">
-                        <img src="di nha trang 2.jpg" alt="Đi Nha Trang 2">
-                        <img src="di nha trang 3.jpg" alt="Đi Nha Trang 3">
-                        <img src="di nha trang 5.jpg" alt="Đi Nha Trang 5">
-                        <img src="di nha trang 6.jpg" alt="Đi Nha Trang 6">
-                        <img src="di nha trang 7.jpg" alt="Đi Nha Trang 7">
-                        <img src="di nha trang 8.jpg" alt="Đi Nha Trang 8">
-                        <img src="di nha trang 9.jpg" alt="Đi Nha Trang 9">
-                        <img src="di nha trang 10.jpg" alt="Đi Nha Trang 10">
-                        <img src="di nha trang 11.jpg" alt="Đi Nha Trang 11">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang.jpg" alt="Đi Nha Trang">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%202.jpg" alt="Đi Nha Trang 2">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%203.jpg" alt="Đi Nha Trang 3">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%204.jpg" alt="Đi Nha Trang 4">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%205.jpg" alt="Đi Nha Trang 5">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%206.jpg" alt="Đi Nha Trang 6">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%207.jpg" alt="Đi Nha Trang 7">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%208.jpg" alt="Đi Nha Trang 8">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%209.jpg" alt="Đi Nha Trang 9">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2010.jpg" alt="Đi Nha Trang 10">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2011.jpg" alt="Đi Nha Trang 11">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2012.jpg" alt="Đi Nha Trang 12">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2013.jpg" alt="Đi Nha Trang 13">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2014.jpg" alt="Đi Nha Trang 14">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2015.jpg" alt="Đi Nha Trang 15">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2016.jpg" alt="Đi Nha Trang 16">
+                        <img src="Gia%20Dinh/Nha%20Trang/di%20nha%20trang%2017.jpg" alt="Đi Nha Trang 17">
+                        <video controls>
+                            <source src="Gia%20Dinh/Nha%20Trang/di%20choi%20nha%20trang.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Nha%20Trang/di%20len%20nhan%20giai.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="vungtau-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi chơi Vũng Tàu</h3>
+                    <p>Toàn bộ ảnh và video chuyến đi Vũng Tàu được hiển thị trực tiếp trong đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau.jpg" alt="Đi Vũng Tàu">
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%202.jpg" alt="Đi Vũng Tàu 2">
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%205.jpg" alt="Đi Vũng Tàu 5">
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%206.jpg" alt="Đi Vũng Tàu 6">
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%207.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%208.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%209.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2010.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2011.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2012.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2013.mp4" type="video/mp4">
+                        </video>
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2014.jpg" alt="Đi Vũng Tàu 14">
+                        <img src="Gia%20Dinh/Vung%20Tau/di%20vung%20tau%2015.jpg" alt="Đi Vũng Tàu 15">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="outside-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Những khoảnh khắc bên ngoại</h3>
+                    <p>Các tệp còn lại của chuyến bên ngoại được gom lại ở đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Ngoai/me%20va%20ngoai.jpg" alt="Mẹ và ngoại">
+                        <img src="Gia%20Dinh/Ngoai/me%20va%20ngoai%202.jpg" alt="Mẹ và ngoại 2">
+                        <img src="Gia%20Dinh/Ngoai/me%20va%20ngoai%203.jpg" alt="Mẹ và ngoại 3">
+                        <img src="Gia%20Dinh/Ngoai/me%20va%20ngoai%205.jpg" alt="Mẹ và ngoại 5">
+                        <img src="Gia%20Dinh/Ngoai/me,%20ngoai%20va%20toi.jpg" alt="Mẹ, ngoại và tôi">
+                        <img src="Gia%20Dinh/Ngoai/ngoai%202.jpg" alt="Ngoại 2">
+                        <img src="Gia%20Dinh/Ngoai/ngoai%203.jpg" alt="Ngoại 3">
+                        <img src="Gia%20Dinh/Ngoai/ngoai%204.jpg" alt="Ngoại 4">
+                        <img src="Gia%20Dinh/Ngoai/ngoai%205.jpg" alt="Ngoại 5">
+                        <img src="Gia%20Dinh/Ngoai/ngoai%207.jpg" alt="Ngoại 7">
+                        <video controls>
+                            <source src="Gia%20Dinh/Ngoai/cau%206%20ben%20ngoai.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Ngoai/me%20ben%20ngoai.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Gia%20Dinh/Ngoai/ngoai%206.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="eatwithhai-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi ăn với Hai</h3>
+                    <p>Các tệp trong chuyến đi ăn cùng Hai được gom lại ở đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Gia%20Dinh/Di%20an%20voi%20Hai/di%20an%20voi%20hai.jpg" alt="Đi ăn với Hai" class="featured-video">
+                        <img src="Gia%20Dinh/Di%20an%20voi%20Hai/di%20an%20voi%20hai%202.jpg" alt="Đi ăn với Hai 2">
+                        <img src="Gia%20Dinh/Di%20an%20voi%20Hai/di%20an%20voi%20hai%203.jpg" alt="Đi ăn với Hai 3">
+                        <img src="Gia%20Dinh/Di%20an%20voi%20Hai/di%20an%20voi%20hai%204.jpg" alt="Đi ăn với Hai 4">
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <!-- 6. KHU VỰC 3: BẠN BÈ & ĐỒNG ĐỘI -->
-        <h2 id="friends" class="section-title">Bạn Bè & Đồng Đội</h2>
+        <!-- 6. KHU VỰC 3: BẠN BÈ-->
+        <h2 id="friends" class="section-title">Bạn Bè</h2>
         <div class="memory-grid">
             
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('4 dua su kien.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Cap%203/cap%203%2015.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Cấp 3</div>
+                    <h3 class="card-title">Hồi ức cấp 3</h3>
+                    <p class="card-text">Những ký ức lớp 12, bạn bè và lễ hội trường được giữ lại trong một khu vực riêng.</p>
+                    <button type="button" class="open-modal" data-target="#cap3-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Sinh%20vien/4 dua su kien.jpg');"></div>
                 <div class="card-content">
                     <div class="card-date">Những khoảnh khắc đại học</div>
                     <h3 class="card-title">Hồi ức sinh viên</h3>
@@ -598,65 +819,175 @@
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('di toa 3.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Toa%20An/di toa 3.jpg');"></div>
                 <div class="card-content">
                     <div class="card-date">Đi trải nghiệm tòa án</div>
-                    <h3 class="card-title">Hành trình thực tế</h3>
+                    <h3 class="card-title">Lần đầu đi tòa án</h3>
                     <p class="card-text">Một ngày khám phá tòa án, học hỏi quy trình và cảm nhận không khí tại nơi công lý được thực thi.</p>
                     <button type="button" class="open-modal" data-target="#court-modal">Xem chi tiết</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('qs 3.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Ban%20nuoc%20ngoai/gap%20ban%20nuoc%20ngoai%202.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Học quân sự</div>
-                    <h3 class="card-title">Kỷ niệm quân sự</h3>
-                    <p class="card-text">Những ngày tập luyện cùng đồng đội, tinh thần kỷ luật và kết nối đồng đội đã trở thành một phần đáng nhớ.</p>
-                    <button type="button" class="open-modal" data-target="#military-modal">Xem chi tiết</button>
+                    <div class="card-date">Bạn nước ngoài</div>
+                    <h3 class="card-title">Bạn nước ngoài</h3>
+                    <p class="card-text">Các khoảnh khắc gặp gỡ bạn nước ngoài được lưu giữ đầy đủ trong modal này.</p>
+                    <button type="button" class="open-modal" data-target="#foreignfriend-modal">Xem chi tiết</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('usvc chup chung.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Da%20Lat/di%20da%20lat%205.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Chương trình Mùa hè xanh</div>
-                    <h3 class="card-title">Mùa hè xanh</h3>
-                    <p class="card-text">Hành trình tình nguyện và phục vụ cộng đồng, nơi tôi học được giá trị của việc chia sẻ và đóng góp cho xã hội.</p>
-                    <button type="button" class="open-modal" data-target="#usvc-modal">Xem chi tiết</button>
-                </div>
-            </div>
-
-            <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('vinamilk.jpg');"></div>
-                <div class="card-content">
-                    <div class="card-date">Dự án học tập</div>
-                    <h3 class="card-title">Đi quay clip làm dự án</h3>
-                    <p class="card-text">Một trải nghiệm sáng tạo cùng đồng đội, từ ý tưởng đến thực hiện, tạo ra những sản phẩm có ý nghĩa.</p>
-                    <button type="button" class="open-modal" data-target="#vinamilk-modal">Xem chi tiết</button>
-                </div>
-            </div>
-
-            <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('di da lat 3.jpg');"></div>
-                <div class="card-content">
-                    <div class="card-date">Hoạt động CLB</div>
-                    <h3 class="card-title">Đi Đà Lạt với CLB</h3>
-                    <p class="card-text">Chuyến du lịch kỷ niệm cùng câu lạc bộ, nơi tôi tạo thêm những ký ức đẹp với bạn bè đồng hành.</p>
+                    <div class="card-date">Đi chơi Đà Lạt</div>
+                    <h3 class="card-title">Đi chơi Đà Lạt</h3>
+                    <p class="card-text">Các kỷ niệm Đà Lạt được gom lại và hiển thị trong một modal riêng.</p>
                     <button type="button" class="open-modal" data-target="#dalat-modal">Xem chi tiết</button>
                 </div>
             </div>
 
             <div class="card featured-card">
-                <div class="featured-banner" style="background-image: url('gap ban nuoc ngoai 2.jpg');"></div>
+                <div class="featured-banner" style="background-image: url('Ban%20Be/HRLZ/hrlz%202.jpg');"></div>
                 <div class="card-content">
-                    <div class="card-date">Gặp gỡ quốc tế</div>
-                    <h3 class="card-title">Gặp bạn nước ngoài</h3>
-                    <p class="card-text">Những khoảnh khắc quý giá khi gặp gỡ và giao lưu với bạn bè từ các quốc gia khác, mở rộng tầm nhìn và kết nối toàn cầu.</p>
-                    <button type="button" class="open-modal" data-target="#gap-ban-nuoc-ngoai-modal">Xem chi tiết</button>
+                    <div class="card-date">Hùng biện HRLZ3!</div>
+                    <h3 class="card-title">Hùng biện HRLZ3!</h3>
+                    <p class="card-text">Những khoảnh khắc HRLZ3! được lưu lại với đầy đủ nội dung trong modal này.</p>
+                    <button type="button" class="open-modal" data-target="#hrlz-modal">Xem chi tiết</button>
                 </div>
             </div>
 
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Mua%20he%20xanh/usvc%20chup%20chung.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Mùa hè xanh</div>
+                    <h3 class="card-title">Mùa hè xanh</h3>
+                    <p class="card-text">Những khoảnh khắc trong chiến dịch Mùa hè xanh được lưu giữ ở đây.</p>
+                    <button type="button" class="open-modal" data-target="#usvc-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Quan%20su/qs%202.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Học quân sự</div>
+                    <h3 class="card-title">Học quân sự</h3>
+                    <p class="card-text">Những khoảnh khắc học quân sự được gom lại và hiển thị trong modal này.</p>
+                    <button type="button" class="open-modal" data-target="#qs-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <div class="card featured-card">
+                <div class="featured-banner" style="background-image: url('Ban%20Be/Vinamilk/vinamilk.jpg');"></div>
+                <div class="card-content">
+                    <div class="card-date">Làm clip dự án</div>
+                    <h3 class="card-title">Làm clip dự án</h3>
+                    <p class="card-text">Các tệp liên quan đến dự án Vinamilk được lưu giữ trong modal này.</p>
+                    <button type="button" class="open-modal" data-target="#vinamilk-modal">Xem chi tiết</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="dalat-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Đi chơi Đà Lạt</h3>
+                    <p>Toàn bộ ảnh của chuyến Đà Lạt được hiển thị trực tiếp tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Ban%20Be/Da%20Lat/di%20da%20lat.jpg" alt="Đi Đà Lạt">
+                        <img src="Ban%20Be/Da%20Lat/di%20da%20lat%202.jpg" alt="Đi Đà Lạt 2">
+                        <img src="Ban%20Be/Da%20Lat/di%20da%20lat%203.jpg" alt="Đi Đà Lạt 3">
+                        <img src="Ban%20Be/Da%20Lat/di%20da%20lat%204.jpg" alt="Đi Đà Lạt 4">
+                        <img src="Ban%20Be/Da%20Lat/di%20da%20lat%205.jpg" alt="Đi Đà Lạt 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="hrlz-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Hùng biện HRLZ3!</h3>
+                    <p>Toàn bộ tệp HRLZ3! được hiển thị trực tiếp tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Ban%20Be/HRLZ/hrlz.jpg" alt="HRLZ">
+                        <img src="Ban%20Be/HRLZ/hrlz%203.jpg" alt="HRLZ 3">
+                        <img src="Ban%20Be/HRLZ/hrlz%204.jpg" alt="HRLZ 4">
+                        <img src="Ban%20Be/HRLZ/hrlz%205.jpg" alt="HRLZ 5">
+                        <img src="Ban%20Be/HRLZ/hrlz%206.jpg" alt="HRLZ 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="usvc-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Mùa hè xanh</h3>
+                    <p>Toàn bộ tệp Mùa hè xanh được hiển thị trực tiếp tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Ban%20Be/Mua%20he%20xanh/usvc.jpg" alt="Mùa hè xanh">
+                        <img src="Ban%20Be/Mua%20he%20xanh/usvc%202.jpg" alt="Mùa hè xanh 2">
+                        <img src="Ban%20Be/Mua%20he%20xanh/usvc%203.jpg" alt="Mùa hè xanh 3">
+                        <img src="Ban%20Be/Mua%20he%20xanh/usvc%204.jpg" alt="Mùa hè xanh 4">
+                        <img src="Ban%20Be/Mua%20he%20xanh/usvc%205jpg" alt="Mùa hè xanh 5">
+                        <video controls>
+                            <source src="Ban%20Be/Mua%20he%20xanh/usvc%204mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Mua%20he%20xanh/usvc%206.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="vinamilk-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Làm clip dự án</h3>
+                    <p>Các tệp dự án Vinamilk được hiển thị trực tiếp tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Ban%20Be/Vinamilk/vinamilk.jpg" alt="Vinamilk">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="qs-modal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true">
+                <button type="button" class="modal-close" aria-label="Đóng">×</button>
+                <div class="modal-header">
+                    <h3>Học quân sự</h3>
+                    <p>Toàn bộ tệp học quân sự được hiển thị trực tiếp tại đây.</p>
+                </div>
+                <div class="modal-content">
+                    <div class="mini-gallery">
+                        <img src="Ban%20Be/Quan%20su/qs%201.jpg" alt="Học quân sự 1">
+                        <img src="Ban%20Be/Quan%20su/qs%202.jpg" alt="Học quân sự 2">
+                        <img src="Ban%20Be/Quan%20su/qs%203.jpg" alt="Học quân sự 3">
+                        <img src="Ban%20Be/Quan%20su/qs%204.jpg" alt="Học quân sự 4">
+                        <img src="Ban%20Be/Quan%20su/qs%205.jpg" alt="Học quân sự 5">
+                        <img src="Ban%20Be/Quan%20su/qs%206.jpg" alt="Học quân sự 6">
+                        <img src="Ban%20Be/Quan%20su/qs%207.jpg" alt="Học quân sự 7">
+                        <img src="Ban%20Be/Quan%20su/qs%208.jpg" alt="Học quân sự 8">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="modal-overlay" id="university-modal" aria-hidden="true">
@@ -668,94 +999,85 @@
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="recap cuoi ki.jpg" alt="Recap cuối kì">
-                        <img src="thach, loc.jpg" alt="Thạch và Lộc">
-                        <img src="toc bui.jpg" alt="Tóc bùi">
+                        <img src="Ban%20Be/Sinh%20vien/recap cuoi ki.jpg" alt="Recap cuối kì">
+                        <img src="Ban%20Be/Sinh%20vien/thach, loc.jpg" alt="Thạch và Lộc">
+                        <img src="Ban%20Be/Sinh%20vien/toc bui.jpg" alt="Tóc bùi">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal-overlay" id="military-modal" aria-hidden="true">
+        <div class="modal-overlay" id="cap3-modal" aria-hidden="true">
             <div class="modal" role="dialog" aria-modal="true">
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
-                    <h3>Học quân sự</h3>
-                    <p>Những khoảnh khắc kỷ luật và đồng đội trong khoảng thời gian huấn luyện quân sự.</p>
+                    <h3>Hồi ức cấp 3</h3>
+                    <p>Toàn bộ khoảnh khắc cấp 3 được gom lại trong một bộ sưu tập dễ quản lý.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="qs 1.jpg" alt="Quân sự 1">
-                        <img src="qs 2.jpg" alt="Quân sự 2">
-                        <img src="qs 4.jpg" alt="Quân sự 4">
-                        <img src="qs 5.jpg" alt="Quân sự 5">
-                        <img src="qs 6.jpg" alt="Quân sự 6">
-                        <img src="qs 7.jpg" alt="Quân sự 7">
-                        <img src="qs 8.jpg" alt="Quân sự 8">
+                        <img src="Ban%20Be/Cap%203/cap%203%201.jpg" alt="Cap 3 1">
+                        <img src="Ban%20Be/Cap%203/cap%203%202.jpg" alt="Cap 3 2">
+                        <img src="Ban%20Be/Cap%203/cap%203%2014.jpg" alt="Cap 3 14">
+                        <img src="Ban%20Be/Cap%203/cap%203%2016.jpg" alt="Cap 3 16">
+                        <img src="Ban%20Be/Cap%203/cap%203%2019.jpg" alt="Cap 3 19">
+                        <img src="Ban%20Be/Cap%203/cap%203%2020.jpg" alt="Cap 3 20">
+                        <img src="Ban%20Be/Cap%203/cap%203.jpg" alt="Cap 3">
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2010.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2011.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2012.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2013.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2017.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2018.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%2021.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%204.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%205.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%206.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%207.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%208.mp4" type="video/mp4">
+                        </video>
+                        <video controls>
+                            <source src="Ban%20Be/Cap%203/cap%203%209.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal-overlay" id="gap-ban-nuoc-ngoai-modal" aria-hidden="true">
+        <div class="modal-overlay" id="foreignfriend-modal" aria-hidden="true">
             <div class="modal" role="dialog" aria-modal="true">
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
-                    <h3>Gặp bạn nước ngoài</h3>
-                    <p>Những khoảnh khắc gặp gỡ và giao lưu quốc tế.</p>
+                    <h3>Bạn nước ngoài</h3>
+                    <p>Toàn bộ tệp gặp gỡ bạn nước ngoài được hiển thị trực tiếp tại đây.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="gap ban nuoc ngoai.jpg" alt="Gặp bạn nước ngoài">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-overlay" id="usvc-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Mùa hè xanh</h3>
-                    <p>Những khoảnh khắc tình nguyện và phục vụ cộng đồng trong chương trình Mùa hè xanh.</p>
-                </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
-                        <img src="usvc 2.jpg" alt="Mùa hè xanh 2">
-                        <img src="usvc 3.jpg" alt="Mùa hè xanh 3">
-                        <img src="usvc 4.jpg" alt="Mùa hè xanh 4">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-overlay" id="vinamilk-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Đi quay clip làm dự án</h3>
-                    <p>Những khoảnh khắc sáng tạo và hợp tác trong quá trình làm dự án.</p>
-                </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-overlay" id="dalat-modal" aria-hidden="true">
-            <div class="modal" role="dialog" aria-modal="true">
-                <button type="button" class="modal-close" aria-label="Đóng">×</button>
-                <div class="modal-header">
-                    <h3>Đi Đà Lạt với CLB</h3>
-                    <p>Những khoảnh khắc đáng nhớ của chuyến du lịch cùng câu lạc bộ.</p>
-                </div>
-                <div class="modal-content">
-                    <div class="mini-gallery">
-                        <img src="di da lat.jpg" alt="Đi Đà Lạt">
-                        <img src="di da lat 2.jpg" alt="Đi Đà Lạt 2">
-                        <img src="di da lat 4.jpg" alt="Đi Đà Lạt 4">
-                        <img src="di da lat 5.jpg" alt="Đi Đà Lạt 5">
+                        <img src="Ban%20Be/Ban%20nuoc%20ngoai/gap%20ban%20nuoc%20ngoai.jpg" alt="Gặp bạn nước ngoài">
+                        <img src="Ban%20Be/Ban%20nuoc%20ngoai/gap%20ban%20nuoc%20ngoai%202.jpg" alt="Gặp bạn nước ngoài 2">
                     </div>
                 </div>
             </div>
@@ -770,9 +1092,8 @@
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
-                        <img src="di toa.jpg" alt="Đã đến tòa án">
-                        <img src="di toa 2.jpg" alt="Hình ảnh trải nghiệm tòa án">
-                    </div>
+                        <img src="Ban%20Be/Toa%20An/di toa.jpg" alt="Đã đến tòa án">
+                        <img src="Ban%20Be/Toa%20An/di toa 2.jpg" alt="Hình ảnh trải nghiệm tòa án">
                 </div>
             </div>
         </div>
