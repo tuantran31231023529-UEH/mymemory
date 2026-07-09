@@ -256,6 +256,99 @@
             box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
         }
 
+        .mini-gallery img,
+        .modal-content img,
+        .featured-video {
+            cursor: zoom-in;
+        }
+
+        .video-placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.35rem;
+            min-height: 100px;
+            padding: 0.9rem;
+            border-radius: 12px;
+            border: 1px dashed rgba(0, 141, 217, 0.35);
+            background: linear-gradient(135deg, #f8fbff, #eef7ff);
+            color: #64748b;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .video-placeholder strong {
+            color: var(--dark-blue);
+            font-size: 0.95rem;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 3000;
+        }
+
+        .image-lightbox.active {
+            display: flex;
+        }
+
+        .image-lightbox .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.16);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .image-lightbox .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+        }
+
+        .image-lightbox .lightbox-nav.prev {
+            left: 1rem;
+        }
+
+        .image-lightbox .lightbox-nav.next {
+            right: 1rem;
+        }
+
+        .image-lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            transform: translateX(0);
+        }
+
+        .image-lightbox img.is-swiping {
+            opacity: 0.8;
+        }
+
         .file-details {
             margin-top: 1.5rem;
             padding: 1rem;
@@ -382,7 +475,7 @@
                     <button type="button" class="modal-close" aria-label="Đóng">×</button>
                     <div class="modal-header">
                         <h3>Chi tiết cột mốc nghiên cứu dữ liệu</h3>
-                        <p>File ảnh và video liên quan chỉ xuất hiện khi bạn mở nội dung này.</p>
+                        <p>Hành trình tự tìm học cách làm nghiên cứu khoa học.</p>
                     </div>
                     <div class="modal-content">
                         <img src="Ban%20Than/Nghien%20cuu/cac%20giai%20nc.jpg" alt="Cac giai nc" class="featured-video">
@@ -444,7 +537,7 @@
                     <button type="button" class="modal-close" aria-label="Đóng">×</button>
                     <div class="modal-header">
                         <h3>Mentoring</h3>
-                        <p>Những tệp còn lại từ thư mục Mentoring được hiển thị trực tiếp ở đây.</p>
+                        <p>Cảm ơn anh mentor vì đã nhiệt tình hỗ trợ em.</p>
                     </div>
                     <div class="modal-content">
                         <img src="Ban%20Than/Mentoring/mentoring%20anh%20chien%203.jpg" alt="Mentoring" class="featured-video">
@@ -484,7 +577,7 @@
                     <button type="button" class="modal-close" aria-label="Đóng">×</button>
                     <div class="modal-header">
                         <h3>Bảo tàng HCM</h3>
-                        <p>Hình ảnh bên trong bảo tàng được hiển thị trực tiếp ở đây.</p>
+                        <p>Những khoảnh khắc lịch sử ở bảo tàng, hành trình khám phá quá khứ.</p>
                     </div>
                     <div class="modal-content">
                         <img src="Ban%20Than/Bao%20tang%20HCM/bao%20tang%20hcm%202.jpg" alt="Bảo tàng HCM 2" class="featured-video">
@@ -585,7 +678,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đám cưới anh Trường</h3>
-                    <p>Một bộ sưu tập gia đình được lưu giữ dưới đây.</p>
+                    <p>Những khoảnh khắc ấm áp, tình thân và yêu thương toàn tập.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -630,7 +723,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Chú Linh</h3>
-                    <p>Tất cả những tệp còn lại về Chú Linh được hiển thị ngay tại đây.</p>
+                    <p>Những khoảnh khắc ấm cúng ở nhà, tình yêu thương của gia đình.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -651,7 +744,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Mẹ</h3>
-                    <p>Những tấm ảnh còn lại cùng mẹ được hiển thị ở đây.</p>
+                    <p>Những nụ cười bên mẹ, động lực để em vững bước mỗi ngày.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -669,7 +762,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đi chơi Nha Trang</h3>
-                    <p>Toàn bộ ảnh và video của chuyến đi Nha Trang được hiển thị trong đây.</p>
+                    <p>Những khoảnh khắc đẹp ở thành phố biển, biển xanh và nắng vàng.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -706,7 +799,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đi chơi Vũng Tàu</h3>
-                    <p>Toàn bộ ảnh và video chuyến đi Vũng Tàu được hiển thị trực tiếp trong đây.</p>
+                    <p>Mưa nắng Vũng Tàu, cuộc du hành gia đình đầy tiếng cười.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -747,7 +840,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Những khoảnh khắc bên ngoại</h3>
-                    <p>Các tệp còn lại của chuyến bên ngoại được gom lại ở đây.</p>
+                    <p>Những đặc biệt tại nhà ngoại, tình yêu thương không lời nói.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -780,7 +873,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đi ăn với Hai</h3>
-                    <p>Các tệp trong chuyến đi ăn cùng Hai được gom lại ở đây.</p>
+                    <p>Những bữa cơm vui vẻ cùng chị Hai, tình chị em vô giá.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -895,7 +988,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Đi chơi Đà Lạt</h3>
-                    <p>Toàn bộ ảnh của chuyến Đà Lạt được hiển thị trực tiếp tại đây.</p>
+                    <p>Thành phố ngàn hoa qua ống kính, sương mù và cà phê thơm.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -914,7 +1007,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Hùng biện HRLZ3!</h3>
-                    <p>Toàn bộ tệp HRLZ3! được hiển thị trực tiếp tại đây.</p>
+                    <p>Hùng biện, tự tin, và những bài học từ sân khấu.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -933,7 +1026,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Mùa hè xanh</h3>
-                    <p>Toàn bộ tệp Mùa hè xanh được hiển thị trực tiếp tại đây.</p>
+                    <p>Xanh tươi, ý nghĩa và tình yêu trong mỗi bước chân.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -958,7 +1051,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Làm clip dự án</h3>
-                    <p>Các tệp dự án Vinamilk được hiển thị trực tiếp tại đây.</p>
+                    <p>Dự án học tập, sáng tạo và đam mê marketing.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -973,7 +1066,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Học quân sự</h3>
-                    <p>Toàn bộ tệp học quân sự được hiển thị trực tiếp tại đây.</p>
+                    <p>Những ngày quân đội, rèn luyện ý chí và kỷ luật.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -1012,7 +1105,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Hồi ức cấp 3</h3>
-                    <p>Toàn bộ khoảnh khắc cấp 3 được gom lại trong một bộ sưu tập dễ quản lý.</p>
+                    <p>Thời thanh xuân, bạn bè thân thiết, những tiếc nuối tươi đẹp.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -1072,7 +1165,7 @@
                 <button type="button" class="modal-close" aria-label="Đóng">×</button>
                 <div class="modal-header">
                     <h3>Bạn nước ngoài</h3>
-                    <p>Toàn bộ tệp gặp gỡ bạn nước ngoài được hiển thị trực tiếp tại đây.</p>
+                    <p>Gặp gỡ, học hỏi và mở mang tầm nhìn từ bạn quốc tế.</p>
                 </div>
                 <div class="modal-content">
                     <div class="mini-gallery">
@@ -1100,6 +1193,13 @@
 
     </div>
 
+    <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+        <button type="button" class="lightbox-nav prev" aria-label="Ảnh trước">‹</button>
+        <button type="button" class="lightbox-nav next" aria-label="Ảnh tiếp theo">›</button>
+        <button type="button" class="lightbox-close" aria-label="Đóng ảnh lớn">×</button>
+        <img src="" alt="Ảnh lớn">
+    </div>
+
     <!-- 7. CHÂN TRANG -->
     <footer>
         <p>© 2026 Created with ❤️ by Tuấn. Keep moving forward!</p>
@@ -1110,11 +1210,142 @@
             const openButtons = document.querySelectorAll('.open-modal');
             const modals = document.querySelectorAll('.modal-overlay');
             const closeButtons = document.querySelectorAll('.modal-close');
+            const videoElements = document.querySelectorAll('video');
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImage = lightbox.querySelector('img');
+            const lightboxClose = lightbox.querySelector('.lightbox-close');
+            const lightboxPrev = lightbox.querySelector('.lightbox-nav.prev');
+            const lightboxNext = lightbox.querySelector('.lightbox-nav.next');
+            let lightboxImages = [];
+            let lightboxIndex = -1;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            const showVideoFallback = function(video, message) {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'video-placeholder';
+                placeholder.innerHTML = '<strong>Video không thể phát</strong><span>' + message + '</span>';
+                video.replaceWith(placeholder);
+            };
+
+            videoElements.forEach(function(video) {
+                const sources = Array.from(video.querySelectorAll('source'));
+                const hasSource = sources.some(function(source) {
+                    return source.src;
+                });
+
+                if (!hasSource) {
+                    showVideoFallback(video, 'Video chưa được tải lên hoặc đường dẫn bị lỗi.');
+                    return;
+                }
+
+                video.addEventListener('error', function() {
+                    showVideoFallback(video, 'Video này hiện không thể phát được trên trình duyệt này.');
+                }, { once: true });
+            });
 
             const toggleModal = function(modal, show) {
                 modal.classList.toggle('active', show);
                 modal.setAttribute('aria-hidden', show ? 'false' : 'true');
             };
+
+            const openLightbox = function(src, alt, index) {
+                lightboxImages = Array.from(document.querySelectorAll('.mini-gallery img, .modal-content > img, .featured-video'))
+                    .filter(function(image) {
+                        return image.getAttribute('src');
+                    })
+                    .map(function(image) {
+                        return {
+                            src: image.getAttribute('src'),
+                            alt: image.getAttribute('alt') || 'Ảnh'
+                        };
+                    });
+
+                lightboxIndex = lightboxImages.findIndex(function(item) {
+                    return item.src === src;
+                });
+
+                if (lightboxIndex === -1) {
+                    lightboxIndex = index !== undefined ? index : 0;
+                }
+
+                if (lightboxImages.length > 0) {
+                    const current = lightboxImages[lightboxIndex] || lightboxImages[0];
+                    lightboxImage.src = current.src;
+                    lightboxImage.alt = current.alt;
+                } else {
+                    lightboxImage.src = src;
+                    lightboxImage.alt = alt;
+                }
+
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+            };
+
+            const closeLightbox = function() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImage.removeAttribute('src');
+                lightboxImage.classList.remove('is-swiping');
+            };
+
+            const showLightboxItem = function(index) {
+                if (!lightboxImages.length) {
+                    return;
+                }
+                lightboxIndex = (index + lightboxImages.length) % lightboxImages.length;
+                const item = lightboxImages[lightboxIndex];
+                lightboxImage.classList.add('is-swiping');
+                setTimeout(function() {
+                    lightboxImage.src = item.src;
+                    lightboxImage.alt = item.alt;
+                    lightboxImage.classList.remove('is-swiping');
+                }, 80);
+            };
+
+            document.querySelectorAll('img').forEach(function(img) {
+                img.addEventListener('click', function(event) {
+                    const src = img.getAttribute('src');
+                    if (!src) {
+                        return;
+                    }
+                    event.stopPropagation();
+                    const index = Array.from(document.querySelectorAll('.mini-gallery img, .modal-content > img, .featured-video')).indexOf(img);
+                    openLightbox(src, img.getAttribute('alt') || 'Ảnh', index);
+                });
+            });
+
+            lightboxPrev.addEventListener('click', function() {
+                showLightboxItem(lightboxIndex - 1);
+            });
+
+            lightboxNext.addEventListener('click', function() {
+                showLightboxItem(lightboxIndex + 1);
+            });
+
+            lightbox.addEventListener('touchstart', function(event) {
+                touchStartX = event.touches[0].clientX;
+            }, { passive: true });
+
+            lightbox.addEventListener('touchend', function(event) {
+                touchEndX = event.changedTouches[0].clientX;
+                const delta = touchEndX - touchStartX;
+                if (Math.abs(delta) > 60) {
+                    if (delta < 0) {
+                        showLightboxItem(lightboxIndex + 1);
+                    } else {
+                        showLightboxItem(lightboxIndex - 1);
+                    }
+                }
+            }, { passive: true });
+
+            lightbox.addEventListener('click', function(event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
 
             openButtons.forEach(function(button) {
                 button.addEventListener('click', function() {
@@ -1149,6 +1380,9 @@
                             toggleModal(modal, false);
                         }
                     });
+                    if (lightbox.classList.contains('active')) {
+                        closeLightbox();
+                    }
                 }
             });
         });
